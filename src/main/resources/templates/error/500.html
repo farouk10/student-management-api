@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Erreur Serveur</title>
+    <style>
+        /* Même style que 404 mais avec couleur différente */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .error-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            padding: 50px 40px;
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+        }
+
+        .error-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #dc2626;
+        }
+
+        .error-code {
+            font-size: 3rem;
+            color: #dc2626;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        h1 {
+            color: #2d3748;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .error-message {
+            color: #718096;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #667eea;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .error-container {
+                padding: 30px 20px;
+            }
+
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="error-container">
+    <div class="error-icon">🚨</div>
+    <div class="error-code">500</div>
+    <h1>Erreur Interne du Serveur</h1>
+
+    <div class="error-message">
+        <p>Une erreur interne s'est produite sur le serveur.</p>
+        <p>Notre équipe technique a été notifiée et travaille à résoudre le problème.</p>
+    </div>
+
+    <div class="btn-group">
+        <a th:href="@{/}" class="btn">🏠 Page d'Accueil</a>
+        <a href="javascript:history.back()" class="btn" style="background: #dc2626;">↩️ Retour</a>
+        <a th:href="@{/}" class="btn" style="background: #f59e0b;">🔄 Actualiser</a>
+    </div>
+</div>
+</body>
+</html>

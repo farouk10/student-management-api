@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Accès Refusé</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .error-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            padding: 50px 40px;
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+        }
+
+        .error-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #dc2626;
+        }
+
+        .error-code {
+            font-size: 3rem;
+            color: #dc2626;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        h1 {
+            color: #2d3748;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .error-message {
+            color: #718096;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .user-info {
+            background: #f7fafc;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .user-info p {
+            margin: 5px 0;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #667eea;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .error-container {
+                padding: 30px 20px;
+            }
+
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="error-container">
+    <div class="error-icon">⛔</div>
+    <div class="error-code">403</div>
+    <h1>Accès Refusé</h1>
+
+    <div class="error-message">
+        <p>Vous n'avez pas les permissions nécessaires pour accéder à cette ressource.</p>
+    </div>
+
+    <div class="user-info" sec:authorize="isAuthenticated()">
+        <p><strong>Utilisateur:</strong> <span th:text="${username}">Utilisateur</span></p>
+        <p><strong>Rôles:</strong>
+            <span class="role-badge" sec:authorize="hasRole('ADMIN')" style="background: #dc2626; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem;">ADMIN</span>
+            <span class="role-badge" sec:authorize="hasRole('USER')" style="background: #059669; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem;">USER</span>
+        </p>
+    </div>
+
+    <div class="btn-group">
+        <a th:href="@{/}" class="btn">🏠 Page d'Accueil</a>
+        <a th:href="@{/etudiants/list}" class="btn-secondary">📊 Tableau de Bord</a>
+        <a th:href="@{/logout}" class="btn" style="background: #dc2626;">🚪 Déconnexion</a>
+    </div>
+</div>
+</body>
+</html>
