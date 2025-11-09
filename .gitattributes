@@ -1,2 +1,10 @@
 /mvnw text eol=lf
 *.cmd text eol=crlf
+
+# Exclude HTML files from language stats
+*.html linguist-vendored
+# If you have a `static` or `assets` folder for web resources, exclude it
+static/* linguist-vendored
+assets/* linguist-vendored
+# Ensure JAR files are not counted as data
+*.jar -linguist-detectable
