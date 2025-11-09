@@ -17,14 +17,14 @@ Une application Spring Boot complète offrant à la fois une API REST et une int
 
 ## 🛠️ Technologies
 
-- **Backend**: Spring Boot 3.x, Spring Security 6, Spring Data JPA, Spring MVC
+- **Backend**: Spring Boot 3.5.6, Spring Security 6, Spring Data JPA, Spring MVC
 - **Authentification**: JWT (JSON Web Tokens)
 - **Base de Données**: H2 (Développement), MySQL prêt
 - **Templates**: Thymeleaf avec intégration Spring Security
 - **Mapping d'Objets**: MapStruct
 - **Validation**: Jakarta Bean Validation
 - **Outil de Build**: Maven
-- **Version Java**: 17+
+- **Version Java**: 25
 
 ## 📚 Structure du Projet
 ```
@@ -51,9 +51,9 @@ src/
 
 ### Prérequis
 
-- Java 17 ou supérieur
-- Maven 3.6+
-- MySQL (optionnel, pour la production)
+- Java 25 ou supérieur
+- Maven 3.9+
+- MySQL 8.0 (optionnel, pour la production)
 
 ### Installation
 
