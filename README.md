@@ -29,21 +29,21 @@ Une application Spring Boot complète offrant à la fois une API REST et une int
 ## 📚 Structure du Projet
 ```
 src/
-├── controller/                      # Contrôleurs REST & MVC
-│   ├── AuthController.java         # Endpoints d'authentification JWT
-│   ├── EtudiantController.java     # API REST legacy
+├── controller/                         # Contrôleurs REST & MVC
+│   ├── AuthController.java             # Endpoints d'authentification JWT
+│   ├── EtudiantController.java         # API REST legacy
 │   ├── EtudiantController_mapper.java  # API REST basée sur DTO
-│   └── EtudiantController_th.java  # Interface web Thymeleaf
-├── entity/                          # Entités JPA
-│   ├── Etudiant.java               # Entité Étudiant
-│   └── User.java                   # Entité Utilisateur pour l'authentification
-├── repository/                      # Repositories Spring Data
-├── service/                         # Couche logique métier
-├── dto/                            # Data Transfer Objects
-├── security/                        # Configuration JWT & filtres
-├── mapper/                         # Mappers d'objets MapStruct
+│   └── EtudiantController_th.java      # Interface web Thymeleaf
+├── entity/                             # Entités JPA
+│   ├── Etudiant.java                   # Entité Étudiant
+│   └── User.java                       # Entité Utilisateur pour l'authentification
+├── repository/                         # Repositories Spring Data
+├── service/                            # Couche logique métier
+├── dto/                                # Data Transfer Objects
+├── security/                           # Configuration JWT & filtres
+├── mapper/                             # Mappers d'objets MapStruct
 └── resources/
-    ├── templates/                   # Templates Thymeleaf
+    ├── templates/                      # Templates Thymeleaf
     └── application.properties
 ```
 
